@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    <h1>Login Form</h1>
+
+    <form onsubmit="login(event)">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your gmail" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter password" required><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Enter number"><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Message Display -->
+    <p id="message"></p>
+
+    <script>
+        function login(event) {
+            event.preventDefault(); // Stop page refresh
+
+            const username = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (username === "admin" && password === "123456") {
+                message.style.color = "green";
+                message.textContent = "Login Successful! Welcome Admin";
+            } else {
+                message.style.color = "red";
+                message.textContent = "Invalid username or password";
+            }
+        }
+    </script>
+
+</body>
+</html>
